@@ -24,7 +24,11 @@ export class CommentService {
         }
     }
 
-    update(){
-        return "Update a Comment"
-    }
+    findByPost(){}
+
+    findReplies(){}
+
+    update(){}
+
+    delete(){}
 }
