@@ -10,6 +10,6 @@ export class CreateCommentDto {
   post: string;
 
   @IsOptional()
-  @IsMongoId()
+  @IsString()
   parentComment?: string;
 }

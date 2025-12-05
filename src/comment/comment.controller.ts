@@ -29,13 +29,13 @@ export class CommentController {
 
   @Get('post/:postId')
   findByPost(@Param('postId') postId: string) {
-
+      return this.commentService.findByPost(postId);
   }
 
   // GET /comment/:id/replies - Get replies to a comment (Public)
   @Get(':id/replies')
   findReplies(@Param('id') id: string) {
-
+      return this.commentService.findReplies(id);
   }
 
   // PATCH /comment/:id - Update comment (Protected)
@@ -46,13 +46,13 @@ export class CommentController {
     @GetUser('_id') userId: string,
     @Body() updateCommentDto: UpdateCommentDto,
   ) {
-
+    return this.commentService.update(id, userId, updateCommentDto);
   }
 
   // DELETE /comment/:id - Delete comment (Protected)
   @UseGuards(JwtGuard)
   @Delete(':id')
   remove(@Param('id') id: string, @GetUser('_id') userId: string) {
-
+      return this.commentService.delete(id, userId);
   }
 }
